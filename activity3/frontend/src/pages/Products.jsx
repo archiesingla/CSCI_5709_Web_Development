@@ -1,33 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+const BACKEND_URL = "http://localhost:5000/products";
 
 function Products() {
   const [mode, setMode] = useState("none");
   const [products, setProducts] = useState([]);
   const [newProduct, setNewProduct] = useState({
-    id:"",
+    id: "",
     name: "",
     description: "",
     price: "",
   });
 
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    try {
+      const response = await axios.get(BACKEND_URL);
+      setProducts(response.data);
+    } catch (error) {
+      console.error("Error while fetching the products:", error);
+    }
+  };
+
   const handleChange = (e) => {
     setNewProduct({ ...newProduct, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!newProduct.name || !newProduct.price || !newProduct.id) return;
 
-    if (!newProduct.name || !newProduct.price) return;
+    try {
+      await axios.post(BACKEND_URL, {
+        ...newProduct,
+        price: parseFloat(newProduct.price),
+      });
 
-    const productWithId = {
-      ...newProduct,
-      price: parseFloat(newProduct.price),
-      id: products.length + 1,
-    };
-
-    setProducts([...products, productWithId]);
-    setNewProduct({ id:"", name: "", description: "", price: "" });
-    setMode("list");
+      setNewProduct({ id: "", name: "", description: "", price: "" });
+      setMode("list");
+      fetchProducts();
+    } catch (error) {
+      console.error("Error while adding product:", error);
+    }
   };
 
   return (
@@ -112,25 +130,25 @@ function Products() {
           <table className="table table-bordered mt-3">
             <thead className="table-light">
               <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
+                <th>ID</th>
+                <th>Name of Product</th>
+                <th>Product's Description</th>
+                <th>Price ($)</th>
               </tr>
             </thead>
             <tbody>
               {products.length > 0 ? (
-                products.map((product, index) => (
-                  <tr key={index}>
+                products.map((product) => (
+                  <tr key={product.id}>
                     <td>{product.id}</td>
                     <td>{product.name}</td>
                     <td>{product.description}</td>
-                    <td>${product.price.toFixed(2)}</td>
+                    <td>${parseFloat(product.price).toFixed(2)}</td>
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td colSpan="5" className="text-center">
+                  <td colSpan="4" className="text-center">
                     No products added yet.
                   </td>
                 </tr>
