@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+*{
+    font-family:"Poppins",sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+/* navbar starts  */
+.navbar-brand{
+  font-weight:600;
+  margin-left:20px;
+}
+.navbar-nav{
+  margin-right:60px;
+}
+/* navbar ends  */
+
+/* hero starts  */
+#hero{
+  background: #1A6AFD;
+  height: 100vh;
+  max-width: 100%;
+}
+.hero-header{
+  color:white;
+  font-weight: 600;
+}
+.hero-row{
+  padding-top:10%;
+}
+.hero-left{
+  padding-top:100px;
+}
+/* hero ends  */
+
+/* contact starts  */
+.contact-card{
+  height:100vh;
+  text-align: center;
+}
+/* contact ends  */
+
+/* products starts  */
+.fa-pencil{
+  color: green;
+}
+.fa-trash-o{
+  color: red;
+  margin-left:10px;
+}
+.fa:hover{
+  cursor: pointer;
+}
+/* products ends  */
