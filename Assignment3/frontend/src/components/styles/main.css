@@ -1,0 +1,43 @@
+.home-container {
+  background: linear-gradient(135deg, #f9fafa, #1e3c72);
+  background-size: cover;
+  background-position: center;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  max-width: 600px;
+  width: 90%;
+  animation: fadeInUp 1s ease;
+}
+
+.text-gradient {
+  background-color: #36558e;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.login-btn {
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.login-btn:hover {
+  background: linear-gradient(to right, #fefefe, #35567d);
+  color: white !important;
+  border-color: white;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
