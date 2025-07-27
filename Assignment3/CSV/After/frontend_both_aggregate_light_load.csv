@@ -1,0 +1,4 @@
+Label,# Samples,Average,Median,90% Line,95% Line,99% Line,Min,Max,Error %,Throughput,Received KB/sec,Sent KB/sec
+Index File,10,3,2,4,4,15,2,15,0.000%,.37026,0.75,0.04
+Main.js,10,12,11,18,18,22,8,22,0.000%,.37014,941.49,0.05
+TOTAL,20,8,8,15,18,22,2,22,0.000%,.22372,284.76,0.03

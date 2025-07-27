@@ -1,0 +1,5 @@
+Label,# Samples,Average,Median,90% Line,95% Line,99% Line,Min,Max,Error %,Throughput,Received KB/sec,Sent KB/sec
+HTTP Login,50,751,750,800,804,893,667,893,0.00%,0.83879,0.68,0.21
+HTTP Forgot Password,50,238,242,286,291,328,185,328,0.00%,0.84641,0.38,0.2
+HTTP Signup,50,787,774,863,882,924,700,924,0.00%,0.83925,0.38,0.28
+TOTAL,150,592,734,850,880,924,185,924,0.00%,2.52,1.44,0.69
